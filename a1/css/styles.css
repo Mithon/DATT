@@ -93,7 +93,7 @@ h2 {
 p {
     font-size: 3em;
     color: #fff;
-
+    font-family: sans-serif;
 }
 
 
@@ -115,7 +115,12 @@ p {
         height: 80%;
         transform: rotate(90deg);
     }
-
-
+    40% {
+        border-radius: 50%;
+    }
+    50% {
+        border-radius: 30px;
+        transform:rotateX(90deg);
+    }
 
 }
