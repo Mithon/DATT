@@ -236,6 +236,7 @@ label {
 	animation-direction: alternate;
 	animation-fill-mode: forwards;
 
+	text-align: center;
 	display: -webkit-flex;
 	display:         flex;
 	-webkit-align-items: center;
