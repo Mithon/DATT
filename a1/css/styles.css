@@ -49,30 +49,13 @@ table {
 
 /* CSS STYLING BY HUNTER */
 
+@import url(https://fonts.googleapis.com/css?family=Inconsolata:400,700);
+
 .container {
     height: 100vh;
-    display: -webkit-flex;
-    display:         flex;
-    -webkit-align-items: center;
-    align-items: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-}
-
-.art {
-    width: 10px;
-    height: 10px;
-    background-color: #eee;
-}
-
-.art {
-    animation-name: space;
-    animation-duration: 12s;
-    animation-delay: 2s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease;
-    animation-direction: alternate;
-    animation-fill-mode: forwards;
+	background-color: #eee;
+	font-family: 'Inconsolata', monospace;
+	font-size: 0.9em;
 
     display: -webkit-flex;
     display:         flex;
@@ -82,20 +65,344 @@ table {
     justify-content: center;
 }
 
-h2 {
-    font-size: 5em;
-    color: #eee;
-    display: block;
-    z-index: 2;
-    position: relative;
+.art {
+	width: 90%;
+	height: 90%;
+	background-color: white;
 }
 
-p {
-    font-size: 3em;
-    color: #fff;
-    font-family: sans-serif;
+.center-insides {
+	display: -webkit-flex;
+	display:         flex;
+	-webkit-align-items: center;
+	align-items: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	position: relative;
 }
 
+input[type=checkbox] {
+	position: absolute;
+	top: -9999px;
+	left: -9999px;
+}
+
+label {
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+.with-us {
+	display: block;
+	text-align: center;
+	background: rgb(131, 139, 145);
+	padding: 40px 0;
+	color: white;
+	transition: all 0.3s ease;
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+.response, .maybe {
+	text-align: center;
+	color: rgb(131, 139, 145);
+	padding: 40px 0;
+	background-color: #eee;
+	width: 49%;
+	height: auto;
+	display: inline-block;
+	float:left;
+}
+
+.text-area {
+	width: 60%;
+}
+
+.no {
+	float: right;
+}
+
+.maybe {
+	opacity: 0;
+	margin-top: 10px;
+	padding: 40px 0;
+	width: 100%;
+	color: #fff;
+	background-color: #fff;
+	transition: opacity 1s, background-color 1s;
+	animation-timing-function: ease-in;
+	visibility: hidden;
+}
+
+#yes[type=checkbox]:checked ~ .yes {
+	text-decoration: line-through;
+}
+
+#no[type=checkbox]:checked ~ .no {
+	text-decoration: line-through;
+}
+
+#yes[type=checkbox]:checked ~ .maybe {
+	background-color: rgb(131, 139, 145);
+	visibility: visible;
+}
+
+#yes[type=checkbox]:checked ~ .maybe:hover {
+	background-color: rgb(110, 117, 122);
+}
+
+#no[type=checkbox]:checked ~ .maybe {
+	opacity: 1;
+}
+
+.circle {
+	width: 100px;
+	height: 100px;
+	background-color: rgb(131, 139, 145);
+	border-radius: 50%;
+	position: absolute;
+
+	animation-name: breathe;
+	animation-delay: 0s;
+	animation-duration: 6s;
+	animation-iteration-count: infinite;
+	animation-timing-function: ease-in-out;
+	animation-direction: alternate;
+	animation-fill-mode: forwards;
+}
+
+.breathe {
+	width: 100%;
+}
+
+.c1 {
+	top: 4%;
+	left: 4%;
+}
+
+.c2 {
+	top: 4%;
+	right: 4%;
+}
+
+.c3 {
+	bottom: 4%;
+	left: 4%;
+}
+
+.c4 {
+	bottom: 4%;
+	right: 4%;
+}
+
+.closer {
+	width: 100%;
+	margin-top: 10px;
+	opacity: 0;
+	animation-name: fadeIn;
+	animation-delay: 18s;
+	animation-duration: 3s;
+	animation-iteration-count: 1;
+	animation-timing-function: ease;
+	animation-direction: alternate;
+	animation-fill-mode: forwards;
+}
+
+.b-count {
+	opacity: 0;
+
+	animation-name: fadeIn;
+	animation-delay: 8s;
+	animation-duration: 3s;
+	animation-iteration-count: 1;
+	animation-timing-function: ease;
+	animation-direction: alternate;
+	animation-fill-mode: forwards;
+}
+
+/* Squares Page */
+
+.square {
+	background-color: #fff;
+	width: 20%;
+	float: left;
+	height: 100%;
+	border: 5px solid #eee;
+	box-sizing: border-box;
+	animation-delay: 0s;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+	animation-timing-function: ease;
+	animation-direction: alternate;
+	animation-fill-mode: forwards;
+
+	display: -webkit-flex;
+	display:         flex;
+	-webkit-align-items: center;
+	align-items: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	position: relative;
+}
+
+.s8 {
+	color: rgb(131, 139, 145);
+}
+
+.s19 a {
+	opacity: 0;
+	color: white;
+	text-decoration: none;
+
+	transition: opacity 1s ease;
+}
+
+.row {
+	display: block;
+	height: 25%;
+	width: 100%;
+}
+
+#s1[type=checkbox]:checked ~ .s1 {
+	animation-name: beat;
+}
+
+#s2[type=checkbox]:checked ~ .s2 {
+	animation-name: beat;
+}
+
+#s3[type=checkbox]:checked ~ .s3 {
+	animation-name: beat;
+}
+
+#s4[type=checkbox]:checked ~ .s4 {
+	animation-name: beat;
+}
+
+#s5[type=checkbox]:checked ~ .s5 {
+	animation-name: beat;
+}
+
+#s6[type=checkbox]:checked ~ .s6 {
+	animation-name: beat;
+}
+
+#s7[type=checkbox]:checked ~ .s7 {
+	animation-name: beat;
+}
+
+#s8[type=checkbox]:checked ~ .s8 {
+	animation-name: beat;
+}
+
+#s9[type=checkbox]:checked ~ .s9 {
+	animation-name: beat;
+}
+
+#s10[type=checkbox]:checked ~ .s10 {
+	animation-name: beat;
+}
+
+#s11[type=checkbox]:checked ~ .s11 {
+	animation-name: beat;
+}
+
+#s12[type=checkbox]:checked ~ .s12 {
+	animation-name: beat;
+}
+
+#s13[type=checkbox]:checked ~ .s13 {
+	animation-name: beat;
+}
+
+#s14[type=checkbox]:checked ~ .s14 {
+	animation-name: beat;
+}
+
+#s15[type=checkbox]:checked ~ .s15 {
+	animation-name: beat;
+}
+
+#s16[type=checkbox]:checked ~ .s16 {
+	animation-name: beat;
+}
+
+#s17[type=checkbox]:checked ~ .s17 {
+	animation-name: beat;
+}
+
+#s18[type=checkbox]:checked ~ .s18 {
+	animation-name: beat;
+}
+
+#s19[type=checkbox]:checked ~ .s19 {
+	animation-name: beat;
+}
+
+#s19[type=checkbox]:checked ~ .s19 a {
+	opacity: 1;
+	transition: opacity 1s ease;
+}
+
+
+#s20[type=checkbox]:checked ~ .s20 {
+	animation-name: beat;
+}
+
+@keyframes beat {
+	0% {
+		background-color: #fff;
+		color: rgb(131, 139, 145)
+	}
+	20% {
+		background-color: #fff;
+		color: rgb(131, 139, 145)
+	}
+	30% {
+		background-color: rgb(131, 139, 145);
+		color: #fff;
+	}
+	40% {
+		background-color: #fff;
+		color: rgb(131, 139, 145);
+	}
+	50% {
+		background-color: rgb(131, 139, 145);
+		color: #fff;
+	}
+	60% {
+		background-color: #fff;
+		color: rgb(131, 139, 145)
+	}
+	100% {
+		background-color: #fff;
+		color: rgb(131, 139, 145)
+	}
+
+}
+
+@keyframes breathe {
+	0% {
+		width: 0;
+		height: 0;
+	}
+	100% {
+		width: 500px;
+		height: 500px;
+	}
+
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+
+}
 
 @keyframes space {
     0%  {
@@ -115,11 +422,7 @@ p {
         height: 80%;
         transform: rotate(90deg);
     }
-    40% {
-        border-radius: 50%;
-    }
     50% {
-        border-radius: 30px;
         transform:rotateX(90deg);
     }
 
