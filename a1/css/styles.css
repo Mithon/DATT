@@ -56,6 +56,7 @@ table {
 	background-color: #eee;
 	font-family: 'Inconsolata', monospace;
 	font-size: 0.9em;
+	color: rgb(110, 117, 122);
 
     display: -webkit-flex;
     display:         flex;
@@ -350,6 +351,142 @@ label {
 	animation-name: beat;
 }
 
+/* Help Page */
+
+.typing {
+	margin-left: 10%;
+	margin-top: 3%;
+}
+
+.type {
+	height: 25px;
+	width: 25px;
+	flex: none;
+	background-color: rgb(131, 139, 145);
+	color: white;
+	font-size: 1.2em;
+	z-index: 1;
+	order: 2;
+
+	text-align: center;
+	display: -webkit-flex;
+	display:         flex;
+	-webkit-align-items: center;
+	align-items: center;
+	-webkit-justify-content: center;
+	justify-content: space-around;
+
+	float: left;
+	transition: all 0.2s ease-out;
+	margin-right: 1px;
+	border-radius: 5%;
+
+}
+
+
+.type:hover {
+
+	width: 45px;
+	border-radius: 0;
+	transition: all 0.2s ease-out;
+	background-color: rgb(110, 117, 122);
+}
+
+.help-box {
+	display: block;
+	min-width: 300px;
+	margin-top: 50px;
+	float: left;
+	font-weight: bold;
+	font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+.here {
+	opacity: 0;
+	padding-top: 10%;
+	min-width: 400px;
+	color: rgb(131, 139, 145);
+
+	float: none;
+	clear: both;
+	transition: all 0.8s ease-in;
+	transition-delay: 0.7s;
+}
+
+.here div {
+	opacity: 0;
+	transition: all 0.8s ease-in;
+	transition-delay: 0.7s;
+}
+
+.here div a {
+	opacity: 0;
+	color: #fff;
+	transition: all 0.8s ease-in;
+	transition-delay: 0.7s;
+}
+
+
+.need {
+	margin-left: 10%;
+	padding-top: 10%;
+}
+
+#tH[type=checkbox]:checked ~ div .h-text {
+	color: rgb(131, 139, 145);
+	transition: color 0.8s ease-in;
+}
+
+#tL[type=checkbox]:checked ~ div .l-text {
+	color: rgb(131, 139, 145);
+	transition: color 0.8s ease-in;
+}
+
+#tP[type=checkbox]:checked ~ div .p-text {
+	color: rgb(131, 139, 145);
+	transition: color 0.8s ease-in;
+}
+
+#tE[type=checkbox]:checked ~ div .e-text {
+	color: rgb(131, 139, 145);
+	transition: color 0.8s ease-in;
+}
+
+
+
+#tH[type=checkbox]:checked ~ .here {
+	opacity: 1;
+}
+
+#tE[type=checkbox]:checked ~ .here div {
+	opacity: 1;
+}
+
+#tL[type=checkbox]:checked ~ .here div a {
+	opacity: 1;
+}
+
+#tP[type=checkbox]:checked ~ .here div a {
+	color: rgb(131, 139, 145);
+}
+
+
+
+.help {
+	display: inline-block;
+	text-align: center;
+	font-size: 4em;
+	margin-right: 3px;
+	color: #fff;
+	border-bottom: 2px solid rgb(131, 139, 145);
+	transition: color 0.8s ease-in;
+
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+
+
 @keyframes beat {
 	0% {
 		background-color: #fff;
@@ -388,8 +525,8 @@ label {
 		height: 0;
 	}
 	100% {
-		width: 500px;
-		height: 500px;
+		width: 400px;
+		height: 400px;
 	}
 
 }
