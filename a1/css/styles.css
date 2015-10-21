@@ -73,9 +73,10 @@ table {
 }
 
 .art {
+	-webkit-animation: fadeIn 1s ease-in 0s;
 	animation-name: fadeIn;
 	animation-delay: 0s;
-	animation-duration: 1s;;
+	animation-duration: 1s;
 	animation-timing-function: ease-in;
 	animation-direction: alternate;
 	animation-fill-mode: forwards;
@@ -580,7 +581,7 @@ label {
 	100% {
 		background-color: #fff;
 		color: rgb(131, 139, 145);
-	}s
+	}
 
 }
 
@@ -596,6 +597,17 @@ label {
 
 }
 
+@-webkit-keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+
+}
+
 @keyframes fadeIn {
 	0% {
 		opacity: 0;
@@ -603,7 +615,6 @@ label {
 
 	100% {
 		opacity: 1;
-		cursor: auto;
 	}
 
 }
