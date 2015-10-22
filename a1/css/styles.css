@@ -66,6 +66,20 @@ table {
     justify-content: center;
 }
 
+.statement-link {
+	position: absolute;
+	height: 50px;
+	width: 50px;
+	background-color: #eee;
+	left: 10px;
+	bottom: 10px;
+	transition: all 0.1s ease-in;
+}
+
+.statement-link:hover {
+	background-color: #ddd;
+}
+
 .art {
 	width: 90%;
 	height: 90%;
@@ -485,8 +499,6 @@ label {
 	color: rgb(131, 139, 145);
 }
 
-
-
 .help {
 	display: inline-block;
 	text-align: center;
@@ -511,21 +523,24 @@ label {
 	margin-bottom: 10px;
 }
 
-.blur-area	a {
+.blur-area label {
 	-webkit-filter: blur(5px);
  	filter: blur(5px);
 	-webkit-user-select: none;
 	user-select: none;
+	cursor: pointer;
 	color: #e0e0e0;
 	padding: 30px 0;
 	transition: all 0.2s ease-in;
 }
 
-.blur-toggle:hover ~ a {
+.blur-toggle:hover ~ label {
 	-webkit-filter: blur(0);
  	filter: blur(0);
 	color: rgb(131, 139, 145);
 }
+
+
 .blur-toggle {
 	padding: 10px;
 	background-color: rgb(131, 139, 145);
@@ -551,7 +566,33 @@ label {
 	font-style: italic;
 }
 
+.endText {
+	opacity: 0;
+	margin-top: 25px;
+	font-style: italic;
+}
 
+.endText  a {
+	color: inherit;
+}
+
+#end[type=checkbox]:checked ~ .endText {
+	animation: fadeIn 1.5s ease-in 0.5s;
+	animation-fill-mode: forwards;
+}
+
+/* Statement Page */
+
+.statement-title {
+	margin-bottom: 30px;
+}
+
+.statement {
+	padding-bottom: 12px;
+	font-size: 0.9em;
+	max-width: 480px;
+	line-height: 1.4;
+}
 
 @keyframes beat {
 	0% {
