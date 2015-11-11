@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+    <head>
+        <style>
+            body {
+                margin: 0;
+            }
+            #button {
+                color: #fff;
+            }
+            canvas {
+                padding-left: 0;
+                padding-right: 0;
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+            }
+        }
+        </style>
+    </head>
+
+    <canvas id="mainCanvas" width="1280" height="800">
+
+    </canvas>
+
+    <script>
+        function draw() {
+            var canvas = document.getElementById("mainCanvas");
+            var ctx = canvas.getContext("2d");
+            ctx.globalCompositeOperation = 'destination-over';
+            ctx.clearRect(0, 0, 1100, 1100); // clear canvas
+
+            ctx.fillStyle = "rgb(0, 200, 200)";
+            ctx.strokeStyle = "#ffffff";
+
+            ctx.moveTo(10,10);
+
+            for(var i=1; i<20; i++) {
+                for (var y=1; y<20; y++) {
+                    ctx.moveTo(25*i,40*y);
+                    ctx.arc(25*i, 40*y, 10, 0, Math.PI*2, false);
+                    ctx.rect((25*i)-5, 40*y+15, 10, 10);
+                    ctx.fillStyle = "rgb(0, " + (10*i+50) + ", " + (10*y+50) + ")";
+                    console.log("rgb(0, " + (10*i+50) + ", " + (10*y+50) + ")");
+                    ctx.fill();
+                }
+            }
+
+            ctx.stroke();
+
+        }
+        draw();
+    </script>
+
+</body>
+
+</html>
