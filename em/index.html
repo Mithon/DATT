@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>mad</title>
+        <style>
+
+        .container {
+            max-width: 500px;
+            margin: auto;
+        }
+
+        ::-webkit-input-placeholder {
+           color: #ccc;
+        }
+
+        body {
+            color: #444;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        h2 {
+            margin-top: 5px;
+            padding-bottom: 30px;
+        }
+
+        input[type=text] {
+            padding: 0;
+            border: none;
+            border-bottom: 2px solid #ddd;
+            outline: none;
+            font-size: 1.8em;
+            color: #999;
+            transition: all 0.1s ease-in;
+        }
+
+        input[type=text]:focus {
+            border-bottom: 2px solid #999;
+            transition: all 0.2s ease-in;
+        }
+
+        .input-box {
+            padding-bottom: 22px;
+        }
+
+        button {
+            margin-top: 20px;
+            outline: none;
+            border: none;
+            background-color: #CCC;
+            font-size: 1em;
+            color: #fff;
+            padding: 15px 25px;
+            transition: all 0.2s ease-in;
+        }
+
+        button:hover {
+            background-color: #999;
+            transition: all 0.1s ease-in;
+        }
+
+        .input-area {
+            opacity: 1;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .story-area {
+            font-size: 1.7em;
+            line-height: 1.4;
+            color: #666;
+            font-family: monospace;
+        }
+
+        .story-area span {
+            color: #999;
+        }
+
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>mad.</h1>
+            <h2>give me your words.</h2>
+            <div class="input-area">
+                <div class="input-box">
+                    <input type="text" placeholder="adjective" id="input1">
+                </div>
+                <div class="input-box">
+                    <input type="text" placeholder="noun" id="input2">
+                </div>
+                <div class="input-box">
+                    <input type="text" placeholder="number" id="input3">
+                </div>
+                <div class="input-box">
+                    <input type="text" placeholder="noun" id="input4">
+                </div>
+                <div class="input-box">
+                    <input type="text" placeholder="adjective" id="input5">
+                </div>
+                <div class="input-box">
+                    <input type="text" placeholder="verb" id="input6">
+                </div>
+                <div class="input-box">
+                    <input type="text" placeholder="noun" id="input7">
+                </div>
+                <div class="input-box">
+                    <input type="text" placeholder="body part" id="input8">
+                </div>
+                <div class="input-box">
+                    <input type="text" placeholder="adjective" id="input9">
+                </div>
+
+                <button onclick="showStory()">tell my story.</button>
+            </div>
+
+            <div class="story-area hide">
+                <p>Look, I guarantee there'll be <span id="word1"></span> times. I guarantee that at some <span id="word2"></span>, <span id="word3"></span> or both of us is gonna want to get out of this <span id="word4"></span>. But I also guarantee that if I don't ask you to be <span id="word5"></span>, I'll <span id="word6"></span> it for the rest of my <span id="word7"></span>, because I know, in my <span id="word8"></span>, You're The <span id="word9"></span> One For Me.</p>
+            </div>
+
+        </div>
+    </body>
+    <script>
+
+        function showStory() {
+            var inputArea = document.querySelector(".input-area");
+            var storyArea = document.querySelector(".story-area");
+            var wordCount = 8;
+            var wordID = '';
+            var inputID = '';
+            var input = '';
+
+            for (word = 1; word <= wordCount; word++) {
+                inputID = "input" + word;
+                wordID = "word" + word;
+                var input = document.getElementById(inputID).value;
+                document.getElementById(wordID).innerHTML = input;
+                console.log(input);
+            }
+
+
+            inputArea.className = inputArea.className + " hide";
+            storyArea.className = storyArea.className.slice(0, -5);
+
+
+        }
+
+    </script>
+</html>
