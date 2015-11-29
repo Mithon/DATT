@@ -32,6 +32,11 @@
         var count = 0;
         var cap = false;
 
+        function getRanNum(min, max) {
+            return Math.round(Math.random() * (max - min) + min);
+        }
+
+
         function draw() {
             var canvas = document.getElementById("mainCanvas");
             var ctx = canvas.getContext("2d");
@@ -61,10 +66,10 @@
 
             ctx.moveTo(10,10);
 
-            for(var i=1; i<138; i++) {
+            for(var i=1; i<135; i++) {
                 for (var y=1; y<90; y++) {
                     //ctx.moveTo(25*i,40*y);
-                    ctx.fillText("0",8*i, 10*y)
+                    ctx.fillText((getRanNum(0,1).toString()),8*i, 10*y)
                     ctx.fillStyle = "rgb(" + count*6 + ", " + Math.round(255-1.5*i+count) + ", " + Math.round(255-2.8*y+count) + ")";
 
                 }
