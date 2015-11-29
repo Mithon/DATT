@@ -47,6 +47,8 @@
         <script>
 
 
+
+
             var editboxHTML =
                 '<html class="expand close">' +
                 '<body class="expand close" onload="document.f.ta.focus(); document.f.ta.select();">' +
@@ -82,6 +84,9 @@
             {
               var textarea = document.querySelector(".text-place");
               var d = document.querySelector(".dynamicframe");
+
+              if (textarea.value == "")
+                window.location.href = 'http://huntercaron.com/';
 
               if (old != textarea.value) {
                 old = textarea.value;
