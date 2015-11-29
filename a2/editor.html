@@ -1,108 +1,116 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>editor</title>
-        <style>
 
-            body {
+<head>
+    <meta charset="utf-8">
+    <title>editor</title>
+    <style>
+        body {
                 margin: 0;
-            }
+        }
 
-            ::selection {
-                background: #9da5b4;
-            }
+        ::selection {
+            background: #9da5b4;
+        }
 
-            .pane {
-                width: 45%;
-                height: 800px;
-                display: inline-block;
-                float: left;
-            }
-            /* #282c34;
+        .pane {
+            width: 45%;
+            height: 800px;
+            display: inline-block;
+            float: left;
+        }
+        /* #282c34;
     background: #3c424e;
     21252b
 
     rgb(100, 148, 237)
         */
 
-            .text-place {
-                box-shadow: inset 0 -1px 0 #181a1f;
-                color: #9da5b4;
-                font-family: monospace;
-                background-color: #282c34;
-                font-size: 13px
-            }
+        .text-place {
+            box-shadow: inset 0 -1px 0 #181a1f;
+            color: #9da5b4;
+            font-family: monospace;
+            background-color: #282c34;
+            font-size: 13px
+        }
+
+        pre em:not(.comment) {
+            font-style: normal;
+        }
+
+        .comment {
+            color: #707e84;
+        }
+
+        .selector {
+            color: #c66c75;
+        }
+
+        .selector .key {
+            color: #c66c75;
+        }
+
+        .key {
+            color: #c7ccd4;
+        }
+
+        .value {
+            color: #d5927b;
+        }
+    }
+    </style>
+    <script>
+        var editboxHTML =
+            '<html class="expand close">' +
+            '<body class="expand close" onload="document.f.ta.focus(); document.f.ta.select();">' +
+            '<form class="expand close" name="f">' +
+            '<textarea class="text-place expand close">' +
+            '<\/textarea>' +
+            '<\/form>' +
+            '<\/body>' +
+            '<\/html>';
+
+        var starterHTML =
+            '<style type="text/css">\n' +
+            '.expand { width: 100%; height: 100%; }\n' +
+            '.close { border: none; margin: 0px; padding: 0px;}\n' +
+            '.text-place { outline: none}\n' +
+            'html,body { overflow: hidden; }\n' +
+            '<\/style>\n\n' +
+            '<h3>Welcome to this shitty page<\/h3>\n' +
+            '<p>this is shitty but like edit the text<\/p>';
 
 
-            pre em:not(.comment) { font-style: normal; }
+        var old = '';
 
-                .comment       { color: #707e84; }
-                .selector      { color: #c66c75; }
-                .selector .key { color: #c66c75; }
-                .key           { color: #c7ccd4; }
-                .value         { color: #d5927b; }
-            }
-        </style>
-        <script>
+        function init() {
+            document.querySelector(".editbox").innerHTML = editboxHTML;
+            document.querySelector(".text-place").value = starterHTML;
+            update();
+        }
 
+        function update() {
+            var textarea = document.querySelector(".text-place");
+            var d = document.querySelector(".dynamicframe");
 
-
-
-            var editboxHTML =
-                '<html class="expand close">' +
-                '<body class="expand close" onload="document.f.ta.focus(); document.f.ta.select();">' +
-                '<form class="expand close" name="f">' +
-                '<textarea class="text-place expand close">' +
-                '<\/textarea>' +
-                '<\/form>' +
-                '<\/body>' +
-                '<\/html>';
-
-            var starterHTML =
-                '<style type="text/css">\n' +
-                '.expand { width: 100%; height: 100%; }\n' +
-                '.close { border: none; margin: 0px; padding: 0px;}\n' +
-                '.text-place { outline: none}\n' +
-                'html,body { overflow: hidden; }\n' +
-                '<\/style>\n\n' +
-                '<h3>Welcome to this shitty page<\/h3>\n' +
-                '<p>this is shitty but like edit the text<\/p>';
-
-
-            var old = '';
-
-            function init()
-            {
-
-              document.querySelector(".editbox").innerHTML = editboxHTML ;
-              document.querySelector(".text-place").value = starterHTML;
-              update();
-            }
-
-            function update()
-            {
-              var textarea = document.querySelector(".text-place");
-              var d = document.querySelector(".dynamicframe");
-
-              if (textarea.value == "")
+            if (textarea.value == "")
                 window.location.href = 'http://huntercaron.com/';
 
-              if (old != textarea.value) {
+            if (old != textarea.value) {
                 old = textarea.value;
                 d.innerHTML = old;
-              }
-              console.log("seek a fresh outlook");
-
-
-              window.setTimeout(update, 1);
             }
 
-        </script>
-    </head>
-    <body onload="init();">
-        <div class="editbox pane"></div>
-        <div class="dynamicframe pane"></div>
-    </body>
+            console.log("seek a fresh outlook");
+            window.setTimeout(update, 1);
+        }
+    </script>
+</head>
+
+<body onload="init();">
+    <div class="editbox pane"></div>
+    <div class="dynamicframe pane"></div>
 </body>
+</body>
+
 </html>
