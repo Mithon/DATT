@@ -6,7 +6,15 @@
     <title>editor</title>
     <style>
         body {
-                margin: 0;
+            background-color: #22252d;
+            margin: 0;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        .dynamicframe {
+            padding: 15px 0 15px 15px;
+            background: #fff;
+            box-shadow: inset 0 -1px 0 #181a1f;
         }
 
         ::selection {
@@ -19,52 +27,37 @@
             display: inline-block;
             float: left;
         }
-        /* #282c34;
-    background: #3c424e;
-    21252b
 
-    rgb(100, 148, 237)
-        */
+        .expand {
+            width: 100%;
+            height: 100%;
+        }
+
+        .close {
+            border: none;
+            margin: 0px;
+            padding: 0px;
+        }
 
         .text-place {
+            padding: 10px;
             box-shadow: inset 0 -1px 0 #181a1f;
             color: #9da5b4;
             font-family: monospace;
             background-color: #282c34;
-            font-size: 13px
+            font-size: 13px;
+            border: none;
+            margin: 0px;
+            padding: 15px 0 15px 15px;
         }
 
-        pre em:not(.comment) {
-            font-style: normal;
-        }
-
-        .comment {
-            color: #707e84;
-        }
-
-        .selector {
-            color: #c66c75;
-        }
-
-        .selector .key {
-            color: #c66c75;
-        }
-
-        .key {
-            color: #c7ccd4;
-        }
-
-        .value {
-            color: #d5927b;
-        }
-    }
     </style>
     <script>
         var editboxHTML =
             '<html class="expand close">' +
             '<body class="expand close" onload="document.f.ta.focus(); document.f.ta.select();">' +
             '<form class="expand close" name="f">' +
-            '<textarea class="text-place expand close">' +
+            '<textarea class="text-place expand">' +
             '<\/textarea>' +
             '<\/form>' +
             '<\/body>' +
@@ -72,13 +65,12 @@
 
         var starterHTML =
             '<style type="text/css">\n' +
-            '.expand { width: 100%; height: 100%; }\n' +
-            '.close { border: none; margin: 0px; padding: 0px;}\n' +
-            '.text-place { outline: none}\n' +
-            'html,body { overflow: hidden; }\n' +
+            "html,body { overflow: hidden; }\n" +
+            ".dynamicframe,.text-place{\n box-shadow:inset 0 -1px 0 #181a1f\n}\n .close,.text-place{\n border:none;\n margin:0\n}\n body{\n background-color:#22252d;\n margin:0;\n font-family:'Helvetica Neue',Helvetica,Arial,sans-serif\n}\n .dynamicframe{\n padding:15px 0 15px 15px;\n background:#fff\n}\n ::selection{\n background:#9da5b4\n}\n .pane{\n width:45%;\n height:800px;\n display:inline-block;\n float:left\n}\n .expand{\n width:100%;\n height:100%\n}\n .close{\n padding:0\n}\n .text-place{\n color:#9da5b4;\n font-family:monospace;\n background-color:#282c34;\n font-size:13px;\n padding:15px 0 15px 15px\n}\n" +
             '<\/style>\n\n' +
-            '<h3>Welcome to this shitty page<\/h3>\n' +
-            '<p>this is shitty but like edit the text<\/p>';
+            '<h1>web page<\/h1>\n' +
+            '<h3>subhead<\/h3>\n' +
+            '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pharetra, mi a gravida hendrerit, massa libero suscipit nisl, et lacinia mauris erat in odio. Duis sodales porttitor mi, quis egestas eros rutrum ut. Cras feugiat turpis et imperdiet fringilla. Aliquam at pulvinar neque, id volutpat libero. Quisque volutpat, nunc vitae vehicula imperdiet, enim risus mattis lectus, sollicitudin eleifend lacus eros et mauris. Sed lacinia magna justo, nec tempor dolor interdum ac. Etiam ac quam a felis bibendum pulvinar vitae ut nunc. Nulla sit amet interdum lectus. Curabitur congue id neque ultrices porttitor. Pellentesque magna elit, aliquet quis turpis sed, scelerisque congue lacus.<\/p>';
 
 
         var old = '';
@@ -94,7 +86,7 @@
             var d = document.querySelector(".dynamicframe");
 
             if (textarea.value == "")
-                window.location.href = 'http://huntercaron.com/';
+                window.location.href = 'binary.html';
 
             if (old != textarea.value) {
                 old = textarea.value;
