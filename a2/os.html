@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>terminal</title>
+        <style>
+            body {
+                background-color: #000;
+                border: 1px solid #000;
+                font-family: courier, 'courier new', monospace;
+            }
+            .main-code {
+                color: #00ff00;
+                max-width: 600px;
+                margin: auto;
+            }
+
+            input {
+                background-color: #000;
+                border: 1px solid #000;
+                color: #00ff00;
+                padding: 8px;
+                font-family: courier, 'courier new', monospace;
+                outline: none;
+                padding-left: 0;
+                /* border-bottom: 1px solid #00ff00; */
+            }
+
+            a {
+                color: #00ff00;
+                text-decoration: none;
+            }
+
+            a:hover {
+                text-decoration: underline;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="main-code">
+            <div class="response">
+                <pre>enter command...</pre>
+            </div>
+            <input class="commandBox" autofocus type="text" onkeypress="return runScript(event)" />
+        </div>
+        <script>
+        var response =  document.querySelector(".response");
+        var phrases = ["command not recognized, please try again", "nope that's not it", "cmon man get it right", "i'm not here to do ur dirty work. get the command", "do you need a help section? too bad", "did u pass any schooling", "holy toledo get it right"];
+        var inputCount = 0;
+
+        function getPhrase () {
+            if (inputCount == 0)
+                return phrases[0];
+            return phrases[Math.floor(Math.random() * (phrases.length))];
+        }
+
+        function runScript(e) {
+            if (e.keyCode == 13) {
+                var input = document.querySelector(".commandBox").value;
+                if (input == "next" || inputCount > 30)
+                    response.innerHTML = response.innerHTML + '<a href="binary.html" >continue...</a>';
+                //else if (inputCount)
+                else
+                    response.innerHTML = response.innerHTML + "<pre> '" + input + "' " + getPhrase() + " </pre>";
+                inputCount++;
+            }
+        }
+        </script>
+    </body>
+</html>
