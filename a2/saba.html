@@ -56,8 +56,12 @@
         var stillCounter = 0;
         var focusShow = true;
 
-        var img = new Image();
-        img.src = 'saba.png';
+        var Limg = new Image();
+        Limg.src = 'lorah.png';
+
+        var Simg = new Image();
+        Simg.src = 'saba.png';
+
 
         function getRanNum(min, max) {
             return Math.round(Math.random() * (max - min) + min);
@@ -113,7 +117,9 @@
             ctx.translate(canvas.width/2, canvas.height/2);
             ctx.rotate((Math.PI/180)*1);
             ctx.translate(-1*(canvas.width/2), -1*(canvas.height/2));
-            ctx.drawImage(img,mouseX,mouseY);
+            ctx.drawImage(Limg,mouseX+100,mouseY+100);
+            ctx.drawImage(Simg,mouseX-200,mouseY-200);
+            ctx.clearRect(mouseX-200, mouseY-200, 40, 40);
             ctx.fillText("SABA", mouseX+count*3*1.3, mouseY+count*3);
 
 
