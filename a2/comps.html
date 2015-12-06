@@ -78,6 +78,25 @@
             transition: all 0.5s ease-in;
         }
 
+        h2 {
+            display: none;
+        }
+
+        @media print {
+            h2 {
+                display: block;
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                font-weight: bold;
+                text-align: center;
+                font-size: 10em;
+            }
+
+            h1, .intro, .icons, .shapeBox {
+                display: none;
+            }
+
+        }
+
     </style>
 
 </head>
@@ -115,6 +134,12 @@
                 if (undoCount >= 0)
                     undoCount--;
             }
+
+            if (target.id == "print") {
+                window.print();
+            }
+
+
             if (undoCount == undoList.length)
                 document.getElementById("close").className += " show";
 
@@ -123,7 +148,7 @@
 
 
         var d = document.querySelector(".dynamicframe");
-        d.innerHTML = d.innerHTML + '<style>h1{font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: bold; text-align: center; letter-spacing: -5px; font-size: 8em; color: #999;}.intro{font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: bold; text-align: center; max-width: 600px; margin: -30px auto 20px auto; font-size: 0.9em; line-height: 1.4;}.shapeBox{padding-bottom: 500px;}.shape{margin: 120px auto; width: 400px; height: 400px;}.circle{background-color: black; border-radius: 50%;}.square{background-color: black;}.triangle{width: 0; height: 0; border-left: 220px solid transparent; border-right: 220px solid transparent; border-bottom: 350px solid black;}.link{opacity: 1; background-color: black; padding: 250px;}</style><body id="body"> <h1>Shapes &amp; Co.</h1> <div id="intro" class="intro"> <p>Delivering free shapes to you daily. <br>Use these shapes however you like, either in personal <br>or commercial projects. For free, forever. </p><p><a href="statement.html">Subscribe</a> to our email notifications to be the <br>first to know of your daily dose of free shapes. </p></div><div id="box" class="shapeBox"> <div id="shape0" class="shape circle " style="opacity: 1;"></div><div id="shape1" class="shape circle " style="opacity: 0.99;"></div><div id="shape2" class="shape triangle " style="opacity: 0.98;"></div><div id="shape3" class="shape triangle " style="opacity: 0.97;"></div><div id="shape4" class="shape triangle " style="opacity: 0.96;"></div><div id="shape5" class="shape square " style="opacity: 0.95;"></div><div id="shape6" class="shape circle " style="opacity: 0.94;"></div><div id="shape7" class="shape square " style="opacity: 0.93;"></div><div id="shape8" class="shape square " style="opacity: 0.92;"></div><div id="shape9" class="shape circle " style="opacity: 0.91;"></div><div id="shape10" class="shape circle " style="opacity: 0.9;"></div><div id="shape11" class="shape triangle " style="opacity: 0.89;"></div><div id="shape12" class="shape triangle " style="opacity: 0.88;"></div><div id="shape13" class="shape square " style="opacity: 0.87;"></div><div id="shape14" class="shape triangle " style="opacity: 0.86;"></div><div id="shape15" class="shape circle " style="opacity: 0.85;"></div><div id="shape16" class="shape triangle " style="opacity: 0.84;"></div><div id="shape17" class="shape triangle " style="opacity: 0.83;"></div><div id="shape18" class="shape triangle " style="opacity: 0.82;"></div><div id="shape19" class="shape square " style="opacity: 0.81;"></div></div></body>';
+        d.innerHTML = d.innerHTML + '<style>h1{font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: bold; text-align: center; letter-spacing: -5px; font-size: 8em; color: #999;}.intro{font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: bold; text-align: center; max-width: 600px; margin: -30px auto 20px auto; font-size: 0.9em; line-height: 1.4;}.shapeBox{padding-bottom: 500px;}.shape{margin: 120px auto; width: 400px; height: 400px;}.circle{background-color: black; border-radius: 50%;}.square{background-color: black;}.triangle{width: 0; height: 0; border-left: 220px solid transparent; border-right: 220px solid transparent; border-bottom: 350px solid black;}.link{opacity: 1; background-color: black; padding: 250px;}</style><body id="body"> <h1>Shapes &amp; Co.</h1> <h2>PRINT DESIGN SUCKS</h2> <div id="intro" class="intro"> <p>Delivering free shapes to you daily. <br>Use these shapes however you like, either in personal <br>or commercial projects. For free, forever. </p><p><a href="statement.html">Subscribe</a> to our email notifications to be the <br>first to know of your daily dose of free shapes. </p></div><div id="box" class="shapeBox"> <div id="shape0" class="shape circle " style="opacity: 1;"></div><div id="shape1" class="shape circle " style="opacity: 0.99;"></div><div id="shape2" class="shape triangle " style="opacity: 0.98;"></div><div id="shape3" class="shape triangle " style="opacity: 0.97;"></div><div id="shape4" class="shape triangle " style="opacity: 0.96;"></div><div id="shape5" class="shape square " style="opacity: 0.95;"></div><div id="shape6" class="shape circle " style="opacity: 0.94;"></div><div id="shape7" class="shape square " style="opacity: 0.93;"></div><div id="shape8" class="shape square " style="opacity: 0.92;"></div><div id="shape9" class="shape circle " style="opacity: 0.91;"></div><div id="shape10" class="shape circle " style="opacity: 0.9;"></div><div id="shape11" class="shape triangle " style="opacity: 0.89;"></div><div id="shape12" class="shape triangle " style="opacity: 0.88;"></div><div id="shape13" class="shape square " style="opacity: 0.87;"></div><div id="shape14" class="shape triangle " style="opacity: 0.86;"></div><div id="shape15" class="shape circle " style="opacity: 0.85;"></div><div id="shape16" class="shape triangle " style="opacity: 0.84;"></div><div id="shape17" class="shape triangle " style="opacity: 0.83;"></div><div id="shape18" class="shape triangle " style="opacity: 0.82;"></div><div id="shape19" class="shape square " style="opacity: 0.81;"></div></div></body>';
 
     </script>
 </body>
