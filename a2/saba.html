@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>thought</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        canvas {
+            padding-left: 0;
+            padding-right: 0;
+            display: block;
+        }
+
+        a {
+            font-family: monospace;
+            background-color: gray;
+            color: white;
+            font-size: 1em;
+            font-weight: lighter;
+            margin-top: -100px;
+            padding: 20px;
+            border-radius: 2px;
+            opacity: 0;
+            text-decoration: none;
+        }
+
+        .show {
+            opacity: 1;
+            transition: all 2s ease-in;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <canvas id="mainCanvas" width="1280" height="800">
+    </canvas>
+
+    <a id="next" href="brief.html">continue...</a>
+
+    <script>
+        var frames = 0;
+        var count = 0;
+        var cap = false;
+        var mouseX = 0;
+        var mouseY = 0;
+        var disX = 0;
+        var disY = 0;
+        var mouseOldX = 0;
+        var mouseOldY = 0;
+        var stillCounter = 0;
+        var focusShow = true;
+
+        var img = new Image();
+        img.src = 'saba.png';
+
+        function getRanNum(min, max) {
+            return Math.round(Math.random() * (max - min) + min);
+        }
+
+
+
+        function draw() {
+            var canvas = document.getElementById("mainCanvas");
+            var ctx = canvas.getContext("2d");
+            ctx.globalCompositeOperation = 'destination-over';
+            //ctx.clearRect(0, 0, 1280, 800); // clear canvas
+
+            canvas.addEventListener('mousemove', function(e){
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+
+            canvas.addEventListener('click', function(e){
+                ctx.clearRect(mouseX-200, mouseY-200, 400, 400);
+            });
+
+            if (mouseX == mouseOldX && mouseY == mouseOldY) {
+                stillCounter++;
+            }
+
+            mouseOldX = mouseX;
+            mouseOldY = mouseY;
+
+            frames++;
+
+
+
+            if (count == 50)
+                cap = true;
+
+            if (count == 0)
+                cap = false;
+
+
+            if (cap == false)
+                count++;
+
+            if (cap)
+                count--;
+
+            var time = new Date();
+
+
+
+            ctx.moveTo(mouseX, mouseY);
+
+            ctx.translate(canvas.width/2, canvas.height/2);
+            ctx.rotate((Math.PI/180)*1);
+            ctx.translate(-1*(canvas.width/2), -1*(canvas.height/2));
+            ctx.drawImage(img,mouseX,mouseY);
+            ctx.fillText("SABA", mouseX+count*3*1.3, mouseY+count*3);
+
+
+
+            ctx.fill();
+            ctx.stroke();
+
+            window.requestAnimationFrame(draw);
+        }
+
+
+        window.requestAnimationFrame(draw);
+    </script>
+</body>
+</body>
+
+</html>
