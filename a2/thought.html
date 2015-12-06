@@ -1,40 +1,64 @@
 <!DOCTYPE html>
-
 <html>
+
+<head>
+    <meta charset="utf-8">
+    <title>thought</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        canvas {
+            padding-left: 0;
+            padding-right: 0;
+            display: block;
+        }
+
+        a {
+            font-family: monospace;
+            background-color: gray;
+            color: white;
+            font-size: 1em;
+            font-weight: lighter;
+            margin-top: -100px;
+            padding: 20px;
+            border-radius: 2px;
+            opacity: 0;
+            text-decoration: none;
+        }
+
+        .show {
+            opacity: 1;
+            transition: all 2s ease-in;
+
+        }
+    </style>
+</head>
 
 <body>
 
-    <head>
-        <style>
-            body {
-                margin: 0;
-            }
-
-            canvas {
-                padding-left: 0;
-                padding-right: 0;
-                display: block;
-            }
-        }
-        </style>
-    </head>
-
     <canvas id="mainCanvas" width="1280" height="800">
-
     </canvas>
 
+    <a id="next" href="brief.html">continue...</a>
+
     <script>
+        var frames = 0;
         var count = 0;
         var cap = false;
         var mouseX = 0;
         var mouseY = 0;
         var disX = 0;
         var disY = 0;
+        var mouseOldX = 0;
+        var mouseOldY = 0;
+        var stillCounter = 0;
+        var focusShow = true;
 
         function getRanNum(min, max) {
             return Math.round(Math.random() * (max - min) + min);
         }
-
 
 
 
@@ -53,6 +77,27 @@
                 ctx.clearRect(mouseX-200, mouseY-200, 400, 400);
             });
 
+            if (mouseX == mouseOldX && mouseY == mouseOldY) {
+                stillCounter++;
+            }
+
+            mouseOldX = mouseX;
+            mouseOldY = mouseY;
+
+            frames++;
+
+
+            if (stillCounter == 200) {
+                ctx.clearRect(0, 0, 3000, 3000);
+                focusShow = false;
+            }
+
+            if (stillCounter > 666) {
+                document.getElementById("next").className = "show";
+
+            }
+
+
             if (count == 50)
                 cap = true;
 
@@ -67,6 +112,12 @@
                 count--;
 
             var time = new Date();
+
+            ctx.save();
+            ctx.font = "78px sans-serif";
+            if (focusShow)
+                ctx.fillText("focus.", canvas.width/2, canvas.height/2);
+            ctx.restore();
 
 
 
@@ -92,7 +143,7 @@
 
         window.requestAnimationFrame(draw);
     </script>
-
+</body>
 </body>
 
 </html>
