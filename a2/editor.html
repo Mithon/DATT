@@ -11,8 +11,23 @@
 
         rgb(100, 148, 237)
         */
+
+
+        .continue {
+            font-family: monospace;
+            background-color: gray;
+            color: white;
+            font-size: 1em;
+            font-weight: lighter;
+            margin-top: -100px;
+            padding: 20px;
+            border-radius: 2px;
+            text-decoration: none;
+        }
+
     </style>
     <script>
+
         var editboxHTML =
             '<html class="expand close">' +
             '<body class="expand close" onload="document.f.ta.focus(); document.f.ta.select();">' +
@@ -29,7 +44,10 @@
             ".dynamicframe,.text-place{\n overflow-y: scroll;\noutline: none;\nbox-shadow:inset 0 -1px 0 #181a1f\n}\n .close,.text-place{\n border:none;\n margin:0;\n}\n body{\n background-color:#22252d;\n margin:0;\n font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;\n}\n .dynamicframe{\n padding:15px 0 15px 15px;\n background:#fff;\n}\n ::selection{\n background:#9da5b4;\n}\n .pane{\n width:45%;\n height:800px;\n display:inline-block;\n float:left;\n}\n .expand{\n width:100%;\n height:100%\n}\n .close{\n padding:0;\n}\n .text-place{\n color:#9da5b4;\n font-family:monospace;\n background-color:#282c34;\n font-size:13px;\n padding:15px 0 15px 15px;\n}\n" +
             '<\/style>\n\n' +
             ' <style>\n h1{\n font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;\n font-weight: bold;\n text-align: center;\n letter-spacing: -5px;\n font-size: 8em;\n color: #999;\n \n}\n .intro{\n font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;\n font-weight: bold;\n text-align: center;\n max-width: 600px;\n margin: -30px auto 20px auto;\n font-size: 0.9em;\n line-height: 1.4;\n \n}\n .shapeBox{\n padding-bottom: 500px;\n \n}\n .shape{\n margin: 120px auto;\n width: 400px;\n height: 400px;\n \n}\n .circle{\n background-color: black;\n border-radius: 50%;\n \n}\n .square{\n background-color: black;\n \n}\n .triangle{\n width: 0;\n height: 0;\n border-left: 220px solid transparent;\n border-right: 220px solid transparent;\n border-bottom: 350px solid black;\n \n}\n .link{\n opacity: 1;\n background-color: black;\n padding: 250px;\n \n}\n </style>\n<body id="body">\n <h1>\nShapes &amp;\n Co.</h1>\n <div id="intro" class="intro">\n <p>\nDelivering free shapes to you daily. <br>\nUse these shapes however you like, either in personal <br>\nor commercial projects. For free, forever. </p>\n <p>\n<a href="statement.html">\nSubscribe</a>\n to our email notifications to be the <br>\nfirst to know of your daily dose of free shapes. </p>\n </div>\n <div id="box" class="shapeBox">\n <div id="shape0" class="shape circle " style="opacity: 1;\n">\n</div>\n <div id="shape1" class="shape circle " style="opacity: 0.99;\n">\n</div>\n <div id="shape2" class="shape triangle " style="opacity: 0.98;\n">\n</div>\n <div id="shape3" class="shape triangle " style="opacity: 0.97;\n">\n</div>\n <div id="shape4" class="shape triangle " style="opacity: 0.96;\n">\n</div>\n <div id="shape5" class="shape square " style="opacity: 0.95;\n">\n</div>\n <div id="shape6" class="shape circle " style="opacity: 0.94;\n">\n</div>\n <div id="shape7" class="shape square " style="opacity: 0.93;\n">\n</div>\n <div id="shape8" class="shape square " style="opacity: 0.92;\n">\n</div>\n <div id="shape9" class="shape circle " style="opacity: 0.91;\n">\n</div>\n <div id="shape10" class="shape circle " style="opacity: 0.9;\n">\n</div>\n <div id="shape11" class="shape triangle " style="opacity: 0.89;\n">\n</div>\n <div id="shape12" class="shape triangle " style="opacity: 0.88;\n">\n</div>\n <div id="shape13" class="shape square " style="opacity: 0.87;\n">\n</div>\n <div id="shape14" class="shape triangle " style="opacity: 0.86;\n">\n</div>\n <div id="shape15" class="shape circle " style="opacity: 0.85;\n">\n</div>\n <div id="shape16" class="shape triangle " style="opacity: 0.84;\n">\n</div>\n <div id="shape17" class="shape triangle " style="opacity: 0.83;\n">\n</div>\n <div id="shape18" class="shape triangle " style="opacity: 0.82;\n">\n</div>\n <div id="shape19" class="shape square " style="opacity: 0.81;\n">\n</div>\n </div>\n</body>\n';
-            var old = '';
+
+
+        var added = false;
+        var old = '';
 
         function init() {
             document.querySelector(".editbox").innerHTML = editboxHTML;
@@ -41,8 +59,11 @@
             var textarea = document.querySelector(".text-place");
             var d = document.querySelector(".dynamicframe");
 
-            if (textarea.value == "")
-                window.location.href = 'binary.html';
+            if (textarea.value == "" && added == false)   {
+                document.querySelector(".next").innerHTML += '<a id="next" href="comps.html">continue...</a>';
+                added = true;
+            }
+                //window.location.href = 'binary.html';
 
             if (old != textarea.value) {
                 old = textarea.value;
@@ -58,6 +79,7 @@
 <body onload="init();">
     <div class="editbox pane" spellcheck="false"></div>
     <div class="dynamicframe pane"></div>
+    <div class="next"></div>
 </body>
 </body>
 
