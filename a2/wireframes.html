@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>editor</title>
+    <style>
+        /* #282c34;
+        background: #3c424e;
+        21252b
+
+        rgb(100, 148, 237)
+        */
+
+        body {
+            background-color: #41454d;
+            height: 2000px;
+        }
+
+        .wireframes {
+            padding: 20px;
+            margin-bottom: 200px;
+            max-width: 1200px;
+            height: auto;
+
+        }
+
+        .frame {
+            cursor: pointer;
+            width: 780px;
+            margin-left: 50px;
+            float: left;
+            width: 445px;
+            height: 267px;
+            margin-top: 70px;
+            padding: 10px 40px;
+            box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.4);
+            background-color: white;
+
+            -webkit-transition: all 0.25s ease;
+        	-moz-transition: all 0.25s ease;
+        	transition: all 0.25s ease;
+        }
+
+        .frame:hover {
+            -webkit-transition: all 0.25s ease;
+        	-moz-transition: all 0.25s ease;
+        	transition: all 0.25s ease;
+
+        	transform: scale(1.05);
+
+        	box-shadow: 0 8px 30px 0 rgba(0, 0, 0, 0.4);
+        }
+
+        .icons {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 70px;
+        }
+
+        .icon {
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+            margin-top: 20px;
+
+            -webkit-transition: all 0.25s ease;
+        	-moz-transition: all 0.25s ease;
+        	transition: all 0.25s ease;
+            float: left;
+        }
+
+        .icon:hover {
+            -webkit-transition: all 0.25s ease;
+        	-moz-transition: all 0.25s ease;
+        	transition: all 0.25s ease;
+
+        	transform: scale(1.1);
+
+        	box-shadow: 0 8px 30px 0 rgba(0, 0, 0, 0.4);
+        }
+
+
+        .continue {
+            font-family: monospace;
+            background-color: gray;
+            color: white;
+            font-size: 1em;
+            font-weight: lighter;
+            padding: 20px;
+            border-radius: 2px;
+            text-decoration: none;
+        }
+
+        .close {
+            cursor: default;
+            opacity: 0;
+        }
+
+        .show {
+            cursor: pointer;
+            opacity: 1;
+            transition: all 0.5s ease-in;
+        }
+
+        h2 {
+            display: none;
+        }
+
+        @media print {
+            h2 {
+                display: block;
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                font-weight: bold;
+                text-align: center;
+                font-size: 10em;
+            }
+
+            h1, .intro, .icons, .shapeBox {
+                display: none;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <div class="wireframes">
+        <img id="frame" src="images/wireframe01.jpg" class="frame"></img>
+        <img id="frame" src="images/wireframe02.jpg" class="frame"></img>
+        <img id="frame" src="images/wireframe03.jpg" class="frame"></img>
+        <img id="frame" src="images/wireframe04.jpg" class="frame"></img>
+        <img id="frame" src="images/wireframe05.jpg" class="frame"></img>
+        <img id="frame" src="images/wireframe06.jpg" class="frame"></img>
+        <img id="frame" src="images/wireframe07.jpg" class="frame"></img>
+        <img id="correct" src="images/wireframe10.jpg" class="frame"></img>
+        <img id="frame" src="images/wireframe08.jpg" class="frame"></img>
+        <img id="frame" src="images/wireframe09.jpg" class="frame"></img>
+    </div>
+
+    <div class="icons">
+        <a href="programs.html">
+            <img id="close" class="icon close" src="images/close.svg"/>
+        </a>
+        <img id="undo" class="icon" src="images/undo.svg"/>
+        <img id="redo" class="icon" src="images/redo.svg"/>
+
+    </div>
+
+    <div class="next"></div>
+
+    <script>
+
+
+
+        document.addEventListener('click', function(e) {
+            e = e || window.event;
+            var target = e.target;
+            if (target.id == "frame") {
+                target.style.opacity = "0";
+            }
+
+            if (target.id == "correct") {
+                document.getElementById("close").className += " show";
+            }
+
+
+            if (target.id == "print") {
+                window.print();
+            }
+
+
+        }, false);
+
+    </script>
+</body>
+</body>
+
+</html>
