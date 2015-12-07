@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 379.3 517.9" style="enable-background:new 0 0 379.3 517.9;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#E8C8AC;}
+	.st1{fill:#FFFFFF;}
+	.st2{fill:#3F3F3F;}
+	.st3{fill:none;stroke:#6D6D6D;stroke-width:6;stroke-miterlimit:10;}
+	.st4{fill:none;}
+	.st5{font-family:'HelveticaNeue-Bold';}
+	.st6{font-size:48px;}
+	.st7{font-size:40px;}
+	.st8{font-size:28px;}
+	.st9{font-family:'HelveticaNeue';}
+	.st10{font-size:19px;}
+	.st11{fill:#211F1D;stroke:#FFFFFF;stroke-width:15;stroke-miterlimit:10;}
+	.st12{fill:#473B33;}
+	.st13{fill:#332A23;}
+</style>
+<g>
+	<rect class="st1" width="379.3" height="517.9"/>
+	<rect x="44" y="52.3" class="st4" width="286.7" height="191.6"/>
+	<text transform="matrix(1 0 0 1 43.9978 86.5959)"><tspan x="0" y="0" class="st2 st5 st6">PROJECT Y:</tspan><tspan x="0" y="49" class="st2 st5 st7">A Very Brief </tspan><tspan x="0" y="98" class="st2 st5 st7">Brief</tspan></text>
+	<rect x="47.3" y="279.1" class="st4" width="166.3" height="23.6"/>
+	<text transform="matrix(1 0 0 1 47.3306 299.0532)" class="st2 st5 st8">Objective</text>
+	<rect x="48" y="310.7" class="st4" width="267.7" height="20.4"/>
+	<text transform="matrix(1 0 0 1 47.9978 324.2622)" class="st2 st9 st10">Make a website using </text>
+	<rect x="47.3" y="352.5" class="st4" width="259.3" height="23.6"/>
+	<text transform="matrix(1 0 0 1 47.3306 372.5348)" class="st2 st5 st8">Due Date</text>
+	<rect x="48" y="384.2" class="st4" width="267.7" height="39.3"/>
+	<text transform="matrix(1 0 0 1 47.9978 397.7438)"><tspan x="0" y="0" class="st2 st9 st10">All work must be submitted on </tspan><tspan x="0" y="23" class="st2 st9 st10">February 29th 2017.</tspan></text>
+	<line class="st3" x1="43.4" y1="232" x2="341.4" y2="232"/>
+</g>
+</svg>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>sketch</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        canvas {
+            padding-left: 0;
+            padding-right: 0;
+            display: block;
+        }
+
+        a {
+            font-family: monospace;
+            background-color: gray;
+            color: white;
+            font-size: 1em;
+            font-weight: lighter;
+            position: absolute;
+
+            padding: 20px;
+            border-radius: 2px;
+            opacity: 0;
+            text-decoration: none;
+        }
+
+        .show {
+            opacity: 1;
+            transition: all 2s ease-in;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <canvas id="mainCanvas" width="1280" height="800">
+    </canvas>
+
+    <a id="next" href="spark.html">continue...</a>
+
+    <script>
+        var frames = 0;
+        var count = 0;
+        var cap = false;
+        var mouseX = 0;
+        var mouseY = 0;
+        var mouseDown = 0;
+        var prevX = 0;
+        var prevY = 0;
+        var length = 0;
+
+        var sound = new Audio("audio/facebook.wav");
+        var lSound = new Audio("audio/facebook-left.wav");
+        var rSound = new Audio("audio/facebook-right.wav");
+
+
+        var play = true;
+
+        function getRanNum(min, max) {
+            return Math.round(Math.random() * (max - min) + min);
+        }
+
+
+
+        function draw() {
+            var canvas = document.getElementById("mainCanvas");
+            var ctx = canvas.getContext("2d");
+            ctx.globalCompositeOperation = 'destination-over';
+            //ctx.clearRect(0, 0, 1280, 800); // clear canvas
+
+            canvas.addEventListener('mousemove', function(e){
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+
+            canvas.addEventListener('click', function(e){
+                ctx.clearRect(0, 0, 1280, 800);
+            });
+
+
+            frames++;
+
+            if (length > 6666) {
+                play = false;
+                document.getElementById("next").className = "show";
+            }
+
+            //ctx.fillText("sketch",mouseX, mouseY);
+
+
+            ctx.strokeStyle = "rgb(" + 0 + ", " + Math.round(255-2*count) + ", " + Math.round(255-2*count) + ")";
+            ctx.fillStyle = "#000";
+
+            ctx.beginPath();
+            ctx.moveTo(prevX,prevY);
+            ctx.lineTo(mouseX,mouseY);
+
+            ctx.fill();
+            ctx.stroke();
+
+            length += (Math.abs(mouseX-prevX) + Math.abs(mouseY-prevY));
+            prevX = mouseX;
+            prevY = mouseY;
+
+            window.requestAnimationFrame(draw);
+        }
+
+
+        window.requestAnimationFrame(draw);
+    </script>
+</body>
+</body>
+
+</html>

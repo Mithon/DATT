@@ -16,9 +16,16 @@
             canvas {
                 padding-left: 0;
                 padding-right: 0;
-                margin-left: auto;
-                margin-right: auto;
                 display: block;
+            }
+
+            a {
+                width: 15px;
+                height: 15px;
+                position: absolute;
+                opacity: 0;
+                top: 440px;
+                left: 996px;
             }
         }
         </style>
@@ -27,6 +34,8 @@
     <canvas id="mainCanvas" width="1280" height="800">
 
     </canvas>
+
+    <a href="sketch.html"></a>
 
     <script>
         var count = 0;
@@ -74,10 +83,20 @@
 
             ctx.moveTo(10,10);
 
+            ctx.fillText((getRanNum(0,1).toString()), mouseX+count*getRanNum(1,5)*getRanNum(1,5), mouseY+count*getRanNum(1,5));
+            ctx.fillText((getRanNum(0,1).toString()), mouseX+count*getRanNum(1,5)*getRanNum(1,5), mouseY+count*getRanNum(1,5));
+            ctx.fillText((getRanNum(0,1).toString()), mouseX+count*getRanNum(1,5)*getRanNum(1,5), mouseY+count*getRanNum(1,5));
+            ctx.fillText((getRanNum(0,1).toString()), mouseX+count*getRanNum(1,5)*getRanNum(1,5), mouseY+count*getRanNum(1,5));
+            ctx.fillText((getRanNum(0,1).toString()), mouseX+count*getRanNum(1,5)*getRanNum(1,5), mouseY+count*getRanNum(1,5));
+
             for(var i=1; i<160 ; i++) {
                 for (var y=1; y<90; y++) {
                     //ctx.moveTo(25*i,40*y);
-                    ctx.fillText((getRanNum(0,1).toString()),mouseX/10*i, mouseY/10*y);
+                    if (y == 45 && i == 100)
+                        ctx.fillText("2",10*i, 10*y);
+                    else
+                        ctx.fillText((getRanNum(0,1).toString()),10*i, 10*y);
+
                     ctx.fillStyle = "rgb(" + count*6 + ", " + Math.round(255-1.5*i+count) + ", " + Math.round(255-2.8*y+count) + ")";
 
                 }
