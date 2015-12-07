@@ -20,8 +20,8 @@
             }
 
             a {
-                width: 15px;
-                height: 15px;
+                width: 25px;
+                height: 25px;
                 position: absolute;
                 opacity: 0;
                 top: 440px;
@@ -92,7 +92,7 @@
             for(var i=1; i<160 ; i++) {
                 for (var y=1; y<90; y++) {
                     //ctx.moveTo(25*i,40*y);
-                    if (y == 45 && i == 100)
+                    if (y == 45 && i == 100 || y == 45 && i == 101 || y == 46 && i == 101 || y == 46 && i == 100)
                         ctx.fillText("2",10*i, 10*y);
                     else
                         ctx.fillText((getRanNum(0,1).toString()),10*i, 10*y);
