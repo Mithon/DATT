@@ -5,6 +5,9 @@
     <meta charset="utf-8">
     <title>OSX</title>
     <style>
+        #container {
+            position: absolute;
+        }
 
         body {
             padding: 0;
@@ -61,31 +64,27 @@
 
     <div id='container' class="screen">
 
-        <div id="elem" class="force" onmousedown='mydragg.startMoving(this,"container",event);' onmouseup='mydragg.stopMoving("container");'>
+        <div id="elem" class="force" onmousedown='drag.startMoving(this,"container",event);' onmouseup='drag.stopMoving("container");'>
             <a href="os.html">
                 <img class="quit" src="images/quit.png"/>
             </a>
         </div>
-        <div id="elem" class="illustrator" onmousedown='mydragg.startMoving(this,"container",event);' onmouseup='mydragg.stopMoving("container");'></div>
+        <div id="elem" class="illustrator" onmousedown='drag.startMoving(this,"container",event);' onmouseup='drag.stopMoving("container");'></div>
     </div>
 
 
     <script>
 
-        var mydragg = function(){
+        var drag = function(){
             return {
-                move : function(divid,xpos,ypos){
-                    divid.style.left = xpos + 'px';
-                    divid.style.top = ypos + 'px';
-                },
-                startMoving : function(divid,container,evt){
+                startMoving : function(divide,container,evt){
                     evt = evt || window.event;
                     var posX = evt.clientX,
                         posY = evt.clientY,
-                    divTop = divid.style.top,
-                    divLeft = divid.style.left,
-                    eWi = parseInt(divid.style.width),
-                    eHe = parseInt(divid.style.height),
+                    divTop = divide.style.top,
+                    divLeft = divide.style.left,
+                    eWi = parseInt(divide.style.width),
+                    eHe = parseInt(divide.style.height),
                     cWi = parseInt(document.getElementById(container).style.width),
                     cHe = parseInt(document.getElementById(container).style.height);
                     document.getElementById(container).style.cursor='move';
@@ -103,8 +102,12 @@
                             if (aY < 0) aY = 0;
                             if (aX + eWi > cWi) aX = cWi - eWi;
                             if (aY + eHe > cHe) aY = cHe -eHe;
-                        mydragg.move(divid,aX,aY);
+                        drag.move(divide,aX,aY);
                     }
+                },
+                move : function(divide,xpos,ypos){
+                    divide.style.left = xpos + 'px';
+                    divide.style.top = ypos + 'px';
                 },
                 stopMoving : function(container){
                     var a = document.createElement('script');
