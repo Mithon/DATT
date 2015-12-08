@@ -21,7 +21,7 @@
             width: 780px;
             margin: auto;
             margin-top: 70px;
-            padding: 10px 40px;
+            padding: 10px 40px 80px 40px;
             box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.4);
             background-color: white;
         }
@@ -111,6 +111,29 @@
             margin-bottom: 12px;
         }
 
+        .map {
+            width: 100px;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+            display: block;
+
+            -webkit-transition: all 0.25s ease;
+        	-moz-transition: all 0.25s ease;
+        	transition: all 0.25s ease;
+
+            margin-bottom: 30px;
+            margin-top: 15px;
+        }
+
+        .map:hover {
+            -webkit-transition: all 0.25s ease;
+        	-moz-transition: all 0.25s ease;
+        	transition: all 0.25s ease;
+
+        	transform: scale(2.5);
+
+        	box-shadow: 0 8px 30px 0 rgba(0, 0, 0, 0.4);
+        }
+
         @media print {
             h2 {
                 display: block;
@@ -120,7 +143,7 @@
                 font-size: 10em;
             }
 
-            h1, .intro, .icons, .shapeBox {
+            h1, .intro, .icons, .shapeBox, p, span {
                 display: none;
             }
 
@@ -132,6 +155,7 @@
 
 <body>
     <div class="pane">
+        <h2>PRINT DESIGN SUCKS</h2>
         <div class="statement">
             <h1>Statement</h1>
 
@@ -151,11 +175,25 @@
             <p>As a group, we also wanted to give the user as much creative freedom as we could to give the individual a more unique experience and to illustrate the idea that the creative process is different for everyone and that creativity is limitless. For example, the first page breaks down into a text editor with live preview of the code to the right of it. Here, the user can edit the code to their liking, however to move forward through the piece the user needs to delete all of the HTML and CSS making it appear is if they were just beginning to code. Each stage/page of this project provides the user with freedom but still places restrictions in order for the user to move on. Having these restriction also build the area for the user to play in, referencing to Bogost’s “possibility space,” in his concept of play. All of the pages follow a similar formula to guide the user to the last page, in which the end is just the beginning.</p>
 
             <span>Q4</span>
-            <p>index.html, binary.html, brief.html, comps.html, editor.html, os.html, programs.html, sketch.html, spark.html, thought.html, wireframes.html</p>
+            <p><strong>Javascript:</strong> index.html, binary.html, brief.html, comps.html, editor.html, os.html, programs.html, sketch.html, spark.html, thought.html, wireframes.html</p>
+            <p><strong>Requirements:</strong> index.html, binary.html, brief.html, comps.html, editor.html, os.html, programs.html, sketch.html, thought.html, wireframes.html</p>
+
+            <span>Q5</span>
+            <img class="map" src="images/sitemap.png"/>
+
+            <span>Q6</span>
+            <p><em>This question is written from Hunter's perspective</em></p>
+            <p>I have been learning javascript for about 4ish years now so this is kindof hard to compile into a list. The only new thing I learned for this project was HTML5 Canvas which I learned from the Mozilla Developer Network Canvas docs which can be found <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API">here.</a></p>
+            <p>Some of the main sources for learning over the past few years for me are: <a href="https://www.codecademy.com/">CodeCademy</a>, <a href="https://www.codeschool.com/">CodeSchool</a>, and Jon Duckett's <a href="http://www.javascriptbook.com/">Javascript &amp; JQuery Book</a> amongst many other places.</p>
+
+            <span>Q7</span>
+            <p>All artwork and design is original.</p>
+            <p>The facebook noise was found from <a href="http://soundbible.com/1645-Pling.html">here</a>, and is public domain. It was edited into three different files to sound like it is coming from different directions.</p>
+            <p>The switch noise was found <a href="http://www.soundjay.com/switch-sounds-1.html">here</a> and is free for commercial or non-commercial purposes.</p>
         </div>
     </div>
 
-    <h2>PRINT DESIGN SUCKS</h2>
+
     <h3>Statement.pdf</h3>
 
     <div class="icons">
